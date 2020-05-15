@@ -1,0 +1,124 @@
+.Image {
+  background-image: linear-gradient(#5f26c0, #371684);
+  height: 45rem;
+  box-shadow: purple;
+}
+
+.Steps {
+  margin-top: 6%;
+  width: 85rem;
+  height: 35rem;
+  align-content: center;
+}
+
+.StepImage {
+  height: 30rem;
+  width: 50rem;
+  float: right;
+}
+.StepImage2 {
+  height: 30rem;
+  width: 50rem;
+  float: left;
+}
+.StepImage3 {
+  height: 30rem;
+  width: 50rem;
+  float: right;
+}
+.StepImage4 {
+  height: 30rem;
+  width: 50rem;
+  float: left;
+}
+.Content {
+  float: left;
+  width: 30rem;
+}
+.Content2 {
+  float: right;
+  width: 30rem;
+}
+.Content3 {
+  float: left;
+  width: 30rem;
+}
+.Content4 {
+  float: right;
+  width: 30rem;
+}
+.heading {
+  margin-top: 14%;
+}
+.Para {
+  font-size: larger;
+  margin-top: 8%;
+}
+.Background {
+}
+
+.Logo {
+  height: 10rem;
+  width: 25rem;
+  margin-top: 8%;
+}
+
+.TagLine {
+  color: white;
+  margin-top: 4%;
+  width: 65rem;
+}
+
+.LearnButton {
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  border: green 200 rounded-full;
+  border-width: 0.3rem;
+}
+
+.Space {
+  padding-top: 3%;
+}
+
+.Space2 {
+  margin-top: 6%;
+  width: 85rem;
+  height: 35rem;
+}
+
+.Cards {
+  height: 20rem;
+  width: 42rem;
+  float: left;
+}
+.Cards1 {
+  height: 20rem;
+  width: 42rem;
+
+  float: right;
+}
+.Link {
+  color: white;
+  text-decoration: none;
+}
+
+.ModalButton {
+  margin-top: 20%;
+  font-size: larger;
+}
+.ModalBody {
+  height: 30rem;
+}
+
+.Div {
+  margin-bottom: 6%;
+}
+
+.Join {
+  margin-top: 3%;
+  font-size: xx-large;
+}
+.Link2 {
+  text-decoration: none;
+}
