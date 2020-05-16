@@ -13,7 +13,7 @@ import Step3 from "./Step3.png";
 import Step4 from "./Step4.png";
 import PoolTogether from "./pooltogether.png";
 
-import Fortmatic from "fortmatic";
+import Authereum from 'authereum'
 import Web3 from "web3";
 import GridLoader from "react-spinners/GridLoader";
 
@@ -25,7 +25,7 @@ export default class Home extends React.Component {
     this.state = {
       open: false,
       accounts: null,
-      fm: null,
+      authereum: null,
       isCreatingAccount: false,
       buyingPoolToken: false,
     };
@@ -34,32 +34,34 @@ export default class Home extends React.Component {
   }
 
   async createEthAddress() {
-    let accounts;
-    const fm = new Fortmatic("pk_test_FCA17985BE2CDF44");
-    window.web3 = new Web3(fm.getProvider());
+    console.log('CLicked')
 
-    // if (window.ethereum) {
-    //   // Use MetaMask provider
-    //   window.web3 = new Web3(window.ethereum);
-    // } else {
-    //   // Use Fortmatic provider
-    //   window.web3 = new Web3(fm.getProvider());
-    // }
-    // Authenticate user
-    console.log(fm, "fmm");
+    let accounts;
+    const authereum = new Authereum('rinkeby')
+    console.log('1authereum', authereum)
+    const provider = await authereum.getProvider()
+    console.log('1privder', provider)
+
+    const web3 = new Web3(provider)
+    console.log('1web3',web3)
+
+    window.web3 = web3
+
     this.setState({ isCreatingAccount: true });
-    fm.user.login().then(async () => {
+
+    web3.currentProvider.enable().then(async () => {
+      console.log('provider', provider)
       console.log("Logged In");
-      accounts = await window.web3.eth.getAccounts(); // ['0x...']
+      accounts = await web3.eth.getAccounts(); // ['0x...']
       console.log("adress", accounts);
       console.log("Address", accounts);
       console.log("web3", window.web3);
-
+      
       this.setState({
         accounts: accounts,
-        fm: fm,
+        authereum: authereum
       });
-    });
+    })
   }
 
   buyToggle() {
@@ -237,6 +239,7 @@ export default class Home extends React.Component {
                       show={this.state.open}
                       toggle={this.buyToggle}
                       accounts={this.state.accounts}
+                      authereumInstance={this.state.authereum}
                     />
                   </div>
                 </CardBody>

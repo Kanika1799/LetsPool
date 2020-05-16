@@ -19,17 +19,20 @@ class BuyModal extends React.Component {
   }
 
   async buyEth() {
-    var widget = new window.Wyre({
-      env: "test",
-      operation: {
-        type: "debitcard-hosted-dialog",
-        dest: "ethereum:" + this.props.accounts,
-        destCurrency: "DAI",
-        sourceAmount: parseInt(this.state.daiAmount),
-        paymentMethod: "debit-card",
-      },
-    });
-    await widget.open();
+    const authereum = this.props.authereumInstance
+    console.log('authereum', authereum)
+    this.props.toggle()
+    authereum.addFunds({
+      options: {
+        tokenSymbol: 'DAI',
+      }
+    }).then(() =>{
+      console.log('THen')
+    })
+    .catch(() => {
+      console.log('Ctch')
+      this.props.toggle()
+    })
   }
 
   render() {
