@@ -52,14 +52,12 @@
 }
 .Para {
   font-size: larger;
-  margin-top: 8%;
 }
 .Background {
 }
 
 .Logo {
-  height: 10rem;
-  width: 25rem;
+  width: 18rem;
   margin-top: 8%;
 }
 
@@ -89,8 +87,8 @@
 
 .Cards {
   height: 20rem;
-  width: 42rem;
-  float: left;
+  width: 50%;
+  display: inline-block;
 }
 .Cards1 {
   height: 20rem;
@@ -104,7 +102,7 @@
 }
 
 .ModalButton {
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: larger;
 }
 .ModalBody {
