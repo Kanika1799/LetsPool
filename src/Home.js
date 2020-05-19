@@ -71,7 +71,7 @@ export default class Home extends React.Component {
             <Card className="Steps">
               <CardBody>
                 <div className="Content2">
-                  <h2 className="heading">Step 2.Sit Back And Relax</h2>
+                  <h2 className="heading">Step 2. Sit Back And Relax</h2>
                   <p className="Para">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
