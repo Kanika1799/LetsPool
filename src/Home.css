@@ -1,59 +1,90 @@
 .Image {
   background-image: linear-gradient(#5f26c0, #371684);
   height: 45rem;
-  box-shadow: purple;
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
+  box-shadow: 10px 10px #492992;
 }
 
 .Steps {
   margin-top: 6%;
-  width: 85rem;
+  width: 80rem;
   height: 35rem;
   align-content: center;
+  border-radius: 2.5%;
+  box-shadow: 10px 10px 10px 10px #2b1168;
 }
-
+.Steps:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
+}
 .StepImage {
   height: 30rem;
-  width: 50rem;
+  width: 70%;
   float: right;
 }
 .StepImage2 {
   height: 30rem;
-  width: 50rem;
+  width: 70%;
   float: left;
 }
 .StepImage3 {
   height: 30rem;
-  width: 50rem;
+  width: 70%;
   float: right;
 }
 .StepImage4 {
   height: 30rem;
-  width: 50rem;
+  width: 70%;
   float: left;
 }
 .Content {
   float: left;
-  width: 30rem;
+  width: 30%;
+  height: 31rem;
+  background-image: linear-gradient(#5f26c0, #371684);
+}
+.StepNumber {
+  width: 50%;
+  height: 30%;
+  background-color: #1f0b4e;
+}
+.Number {
+  color: azure;
+  font-size: 140px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Content2 {
   float: right;
-  width: 30rem;
+  width: 30%;
+  height: 31rem;
+  background-image: linear-gradient(#5f26c0, #371684);
 }
 .Content3 {
   float: left;
-  width: 30rem;
+  width: 30%;
+  height: 31rem;
+  background-image: linear-gradient(#5f26c0, #371684);
 }
 .Content4 {
   float: right;
-  width: 30rem;
+  width: 30%;
+  height: 31rem;
+  background-image: linear-gradient(#5f26c0, #371684);
 }
 .heading {
   margin-top: 14%;
 }
 .Para {
   font-size: larger;
+  margin-top: 14%;
+  color: aliceblue;
+  width: 85%;
 }
 .Background {
+  background-color: #6d40d8;
+  height: 268rem;
 }
 
 .Logo {
@@ -64,36 +95,50 @@
 .TagLine {
   color: white;
   margin-top: 4%;
-  width: 65rem;
+  font-size: xx-large;
+  font-weight: bolder;
 }
 
 .LearnButton {
   color: white;
   font-size: larger;
   font-weight: bolder;
-  border: green 200 rounded-full;
   border-width: 0.3rem;
 }
-
-.Space {
+.LearnButton:hover {
+  background-color: #482299;
+}
+.LearnButton1 {
+  margin-left: 3%;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  border-width: 0.3rem;
+}
+.LearnButton1:hover {
+  background-color: #482299;
+}
+.LearnButton:hover .Space {
   padding-top: 3%;
+}
+.Space {
+  margin-top: 5%;
 }
 
 .Space2 {
-  margin-top: 6%;
-  width: 85rem;
+  margin-top: 3%;
+  width: 80rem;
   height: 35rem;
 }
 
 .Cards {
-  height: 20rem;
-  width: 50%;
+  height: 50%;
+  width: 45%;
   display: inline-block;
 }
 .Cards1 {
-  height: 20rem;
-  width: 42rem;
-
+  height: 50%;
+  width: 45%;
   float: right;
 }
 .Link {
@@ -116,7 +161,25 @@
 .Join {
   margin-top: 3%;
   font-size: xx-large;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  border-width: 0.3rem;
+}
+.Join:hover {
+  background-color: #482299;
 }
 .Link2 {
   text-decoration: none;
+  color: white;
+}
+.Link2:hover {
+  text-decoration: none;
+  color: white;
+}
+.StepName {
+  margin-top: 7%;
+  color: azure;
+  width: 85%;
+  font-weight: bolder;
 }

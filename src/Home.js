@@ -84,7 +84,7 @@ export default class Home extends React.Component {
               <Button className="LearnButton" outline pill theme="info">
                 Wanna Learn More
               </Button>
-              <Button className="LearnButton" outline pill theme="info">
+              <Button className="LearnButton1" outline pill theme="info">
                 Already Know Enough
               </Button>
             </div>
@@ -95,8 +95,13 @@ export default class Home extends React.Component {
             <Card className="Steps">
               <CardBody>
                 <div className="Content">
-                  <h2 className="heading">Step 1</h2>
-                  <h4>Deposit some Dollars with Others</h4>
+                  <div className="StepNumber">
+                    <br />
+                    <br />
+                    <h1 className="Number">1</h1>
+                  </div>
+
+                  <h4 className="StepName">Deposit some Dollars with Others</h4>
                   <p className="Para">
                     You have to deposit some Dollar to Pool Together. Meanwhile
                     others also do the same. All this is safely deposited to
@@ -110,8 +115,12 @@ export default class Home extends React.Component {
             <Card className="Steps">
               <CardBody>
                 <div className="Content2">
-                  <h2 className="heading">Step 2</h2>
-                  <h4>Sit Back And Relax</h4>
+                  <div className="StepNumber">
+                    <br />
+                    <br />
+                    <h1 className="Number">2</h1>
+                  </div>
+                  <h4 className="StepName">Sit Back And Relax</h4>
                   <p className="Para">
                     This is all you need to do now. From now on your entry to
                     the next and it's next prize is taken automatically by the
@@ -125,8 +134,14 @@ export default class Home extends React.Component {
             <Card className="Steps">
               <CardBody>
                 <div className="Content3">
-                  <h2 className="heading">Step 3</h2>
-                  <h4>Get the Prize Results delivered to you</h4>
+                  <div className="StepNumber">
+                    <br />
+                    <br />
+                    <h1 className="Number">3</h1>
+                  </div>
+                  <h4 className="StepName">
+                    Get the Prize Results delivered to you
+                  </h4>
                   <p className="Para">
                     Every time there is a new draw, the prize result is
                     delivered right to your inbox or you can always visit the
@@ -140,8 +155,12 @@ export default class Home extends React.Component {
             <Card className="Steps">
               <CardBody>
                 <div className="Content4">
-                  <h2 className="heading">Step 4</h2>
-                  <h4>Don't Worry About your Tickets</h4>
+                  <div className="StepNumber">
+                    <br />
+                    <br />
+                    <h1 className="Number">4</h1>
+                  </div>
+                  <h4 className="StepName">Don't Worry About your Tickets</h4>
                   <p className="Para">
                     While the winner gets the reward, your tickets are never
                     lost. You can always redeem the initial amount of tokens you
@@ -153,7 +172,7 @@ export default class Home extends React.Component {
             </Card>
 
             <div className="Space2">
-              <Card className="Cards">
+              <Card className="Cards1">
                 <CardBody>
                   <div>
                     <br />
@@ -245,7 +264,7 @@ export default class Home extends React.Component {
             </div>
 
             <div className="Div">
-              <h2>Ready to Invest Some Money??</h2>
+              <h2 className="StepName">Ready to Invest Some Money??</h2>
               <Button className="Join" outline pill theme="info">
                 <a href="https://www.pooltogether.com/" className="Link2">
                   {" "}
