@@ -19,20 +19,23 @@ class BuyModal extends React.Component {
   }
 
   async buyEth() {
-    const authereum = this.props.authereumInstance
-    console.log('authereum', authereum)
-    this.props.toggle()
-    authereum.addFunds({
-      options: {
-        tokenSymbol: 'DAI',
-      }
-    }).then(() =>{
-      console.log('THen')
-    })
-    .catch(() => {
-      console.log('Ctch')
-      this.props.toggle()
-    })
+    const authereum = this.props.authereumInstance;
+    console.log("authereum", authereum);
+    this.props.toggle();
+    authereum
+      .addFunds({
+        options: {
+          tokenSymbol: "DAI",
+          sourceAmount: this.state.daiAmount,
+        },
+      })
+      .then(() => {
+        console.log("THen");
+      })
+      .catch(() => {
+        console.log("Ctch");
+        this.props.toggle();
+      });
   }
 
   render() {

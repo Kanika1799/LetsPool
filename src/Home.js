@@ -7,11 +7,10 @@ import Step3 from "./Step3.png";
 import Step4 from "./Step4.png";
 import PoolTogether from "./pooltogether.png";
 
-import Authereum from "authereum";
-import Web3 from "web3";
 import GridLoader from "react-spinners/GridLoader";
 
 import BuyModal from "./components/BuyModal";
+import { getWeb3, getAutheremInstance, depositToPoolTogether } from "./services";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -31,30 +30,15 @@ export default class Home extends React.Component {
     console.log("CLicked");
 
     let accounts;
-    const authereum = new Authereum("rinkeby");
-    console.log("1authereum", authereum);
-    const provider = await authereum.getProvider();
-    console.log("1privder", provider);
-
-    const web3 = new Web3(provider);
-    console.log("1web3", web3);
-
-    window.web3 = web3;
 
     this.setState({ isCreatingAccount: true });
+    accounts = await getWeb3()
+    
+    const authereum = await getAutheremInstance()
 
-    web3.currentProvider.enable().then(async () => {
-      console.log("provider", provider);
-      console.log("Logged In");
-      accounts = await web3.eth.getAccounts(); // ['0x...']
-      console.log("adress", accounts);
-      console.log("Address", accounts);
-      console.log("web3", window.web3);
-
-      this.setState({
-        accounts: accounts,
-        authereum: authereum,
-      });
+    this.setState({
+      accounts: accounts,
+      authereum: authereum,
     });
   }
 
@@ -213,6 +197,8 @@ export default class Home extends React.Component {
                   </div>
                 </CardBody>
               </Card>
+
+              <Button onClick={(e) => depositToPoolTogether(2)}>Buy Tokens</Button>
 
               <Card className="Cards">
                 <CardBody>
