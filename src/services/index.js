@@ -16,7 +16,6 @@ export const getWeb3 = async () => {
     const provider = await authereum.getProvider();
     console.log("1privder", provider);
 
-    
     if (window.ethereum) {
         web3 = new Web3(window.ethereum)
     } else if (window.web3) {
@@ -26,11 +25,10 @@ export const getWeb3 = async () => {
     }
 
     console.log("1web3", web3);
-
     window.web3 = web3;
 
 
-    web3.currentProvider.enable().then(async () => {
+    return web3.currentProvider.enable().then(async () => {
       const accounts = await web3.eth.getAccounts(); // ['0x...']
       console.log('accounts', accounts)  
 
