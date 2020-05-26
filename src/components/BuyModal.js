@@ -22,12 +22,12 @@ class BuyModal extends React.Component {
     const authereum = this.props.authereumInstance;
     console.log("authereum", authereum);
     this.props.toggle();
+    console.log("this.state.amount", this.state.daiAmount);
     authereum
       .addFunds({
-        options: {
+          countryCode: "US",
           tokenSymbol: "DAI",
           sourceAmount: this.state.daiAmount,
-        },
       })
       .then(() => {
         console.log("THen");

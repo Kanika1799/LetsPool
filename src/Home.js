@@ -51,14 +51,17 @@ export default class Home extends React.Component {
     let accounts;
 
     this.setState({ isCreatingAccount: true });
-    accounts = await getWeb3();
-
-    const authereum = await getAutheremInstance();
-
+    accounts = await getWeb3()
+    console.log('this.accounts', accounts)
+    
+    const authereum = await getAutheremInstance()
+    console.log('got authereum')
     this.setState({
       accounts: accounts,
       authereum: authereum,
     });
+
+    console.log('state', this.state)
   }
 
   buyToggle() {
