@@ -3,7 +3,7 @@
   height: 45rem;
   border-bottom-left-radius: 4%;
   border-bottom-right-radius: 4%;
-  box-shadow: 10px 10px #492992;
+  box-shadow: 10px 10px #a994d8;
 }
 
 .Steps {
@@ -12,12 +12,12 @@
   height: 35rem;
   align-content: center;
   border-radius: 2.5%;
-  box-shadow: 10px 10px 10px 10px #2b1168;
+  box-shadow: 3px 3px #9673e9;
 }
 .Steps:hover {
-  -ms-transform: scale(1.1); /* IE 9 */
-  -webkit-transform: scale(1.1); /* Safari 3-8 */
-  transform: scale(1.1);
+  -ms-transform: scale(1.02); /* IE 9 */
+  -webkit-transform: scale(1.02); /* Safari 3-8 */
+  transform: scale(1.02);
 }
 .StepImage {
   height: 30rem;
@@ -76,14 +76,16 @@
 .heading {
   margin-top: 14%;
 }
+/* 
 .Para {
   font-size: larger;
   margin-top: 14%;
   color: aliceblue;
   width: 85%;
 }
+*/
 .Background {
-  background-color: #6d40d8;
+  background-color: #ffffff;
   height: 268rem;
 }
 
@@ -104,6 +106,7 @@
   font-size: larger;
   font-weight: bolder;
   border-width: 0.3rem;
+  border-color: #3ef3d4;
 }
 .LearnButton:hover {
   background-color: #482299;
@@ -114,6 +117,7 @@
   font-size: larger;
   font-weight: bolder;
   border-width: 0.3rem;
+  border-color: #3ef3d4;
 }
 .LearnButton1:hover {
   background-color: #482299;
@@ -134,7 +138,8 @@
 .Cards {
   height: 50%;
   width: 45%;
-  display: inline-block;
+
+  float: left;
 }
 .Cards1 {
   height: 50%;
@@ -161,13 +166,16 @@
 .Join {
   margin-top: 3%;
   font-size: xx-large;
-  color: white;
+  color: black;
   font-size: larger;
   font-weight: bolder;
   border-width: 0.3rem;
+  border-color: white;
+  background-image: linear-gradient(to right, #8353d6, #371684);
 }
 .Join:hover {
   background-color: #482299;
+  border-color: white;
 }
 .Link2 {
   text-decoration: none;
@@ -177,9 +185,82 @@
   text-decoration: none;
   color: white;
 }
+/* 
 .StepName {
   margin-top: 7%;
   color: azure;
   width: 85%;
   font-weight: bolder;
 }
+*/
+/* redux */
+
+.StepCards {
+  margin-top: 12%;
+}
+.StepCards1 {
+  padding-top: 2%;
+}
+.Para {
+  font-size: larger;
+  color: black;
+}
+.StepName {
+  color: black;
+  font-weight: bolder;
+}
+.Smthng {
+  margin-left: 25%;
+  background-color: rgb(240, 251, 255);
+  padding: 12%;
+}
+.Smthng2 {
+  margin-right: 25%;
+  background-color: rgb(240, 251, 255);
+  padding: 12%;
+}
+.Smthng3 {
+  margin-left: 25%;
+  background-color: rgb(240, 251, 255);
+  padding: 12%;
+}
+.Smthng4 {
+  margin-right: 25%;
+  background-color: rgb(240, 251, 255);
+  padding: 12%;
+}
+.Smthng1 {
+  margin-right: 15%;
+}
+.Container5 {
+  height: 40rem;
+}
+.Pool1 {
+  width: auto;
+  height: 40%;
+  float: left;
+}
+.Pool2 {
+  width: auto;
+  height: 40%;
+  float: right;
+}
+.ImagesStep {
+  height: 45rem;
+  width: auto;
+}
+.One {
+  color: #3ef3d4;
+  font-size: larger;
+}
+/* */
+
+/* */
+
+/* */
+/* */
+
+/* */
+/* */
+
+/* */

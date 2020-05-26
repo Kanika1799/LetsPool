@@ -1,16 +1,35 @@
 import React from "react";
-import { Card, CardBody, CardImg, Button, Badge } from "shards-react";
+import {
+  Card,
+  CardBody,
+  CardImg,
+  Button,
+  Badge,
+  Container,
+  Row,
+  Col,
+  CardTitle,
+} from "shards-react";
 import "./Home.css";
 import Step1 from "./Step1.png";
 import Step2 from "./Step2.png";
 import Step3 from "./Step3.png";
 import Step4 from "./Step4.png";
 import PoolTogether from "./pooltogether.png";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import GridLoader from "react-spinners/GridLoader";
-
+import "./Hover.css";
+import Pool1 from "./Pool1.png";
+import Pool2 from "./Pool2.png";
 import BuyModal from "./components/BuyModal";
-import { getWeb3, getAutheremInstance, depositToPoolTogether } from "./services";
+import ScrollAnimation from "react-animate-on-scroll";
+
+import {
+  getWeb3,
+  getAutheremInstance,
+  depositToPoolTogether,
+} from "./services";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -32,9 +51,9 @@ export default class Home extends React.Component {
     let accounts;
 
     this.setState({ isCreatingAccount: true });
-    accounts = await getWeb3()
-    
-    const authereum = await getAutheremInstance()
+    accounts = await getWeb3();
+
+    const authereum = await getAutheremInstance();
 
     this.setState({
       accounts: accounts,
@@ -61,11 +80,17 @@ export default class Home extends React.Component {
           <center>
             <img className="Logo" src={PoolTogether} />
             <h2 className="TagLine">
-              You could win $146 every week just by saving your money
+              You could win <span className="One"> $146 </span> every week just
+              by saving your money
             </h2>
 
             <div className="Space">
-              <Button className="LearnButton" outline pill theme="info">
+              <Button
+                className="LearnButton hvr-ripple-out"
+                outline
+                pill
+                theme="info"
+              >
                 Wanna Learn More
               </Button>
               <Button className="LearnButton1" outline pill theme="info">
@@ -74,6 +99,120 @@ export default class Home extends React.Component {
             </div>
           </center>
         </div>
+        <div className="StepCards">
+          <Container className="Container5">
+            <Row>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="bounceInLeft">
+                  <div className="ImagesStep">
+                    <img height="50%" width="auto" src={Step1} />
+                  </div>
+                </ScrollAnimation>{" "}
+              </Col>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                  <div className="Smthng hvr-bounce-in">
+                    <h4 className="StepName">
+                      Deposit some Dollars with Others
+                    </h4>
+                    <p className="Para">
+                      You have to deposit some Dollar to Pool Together.
+                      Meanwhile others also do the same. All this is safely
+                      deposited to Pool Together's Contract
+                    </p>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+            </Row>
+          </Container>
+
+          <Container className="Container5">
+            <Row>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                  <div className="Smthng2 hvr-bounce-in">
+                    <h4 className="StepName">Sit Back And Relax</h4>
+                    <p className="Para">
+                      This is all you need to do now. From now on your entry to
+                      the next and it's next prize is taken automatically by the
+                      system while you can relax and focus on your work.
+                    </p>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="bounceInRight">
+                  <div className="ImagesStep">
+                    <img height="50%" width="auto" src={Step2} />
+                  </div>
+                </ScrollAnimation>
+              </Col>
+            </Row>
+          </Container>
+
+          <Container className="Container5">
+            <Row>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="bounceInLeft">
+                  <div className="ImagesStep">
+                    <img height="50%" width="auto" src={Step3} />
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                  <div className="Smthng3 hvr-bounce-in">
+                    <h4 className="StepName">
+                      {" "}
+                      Get the Prize Results delivered to you
+                    </h4>
+                    <p className="Para">
+                      Every time there is a new draw, the prize result is
+                      delivered right to your inbox or you can always visit the
+                      Pool Together site to check the prize history.
+                    </p>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+            </Row>
+          </Container>
+
+          <Container className="Container5">
+            <Row>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                  <div className="Smthng4 hvr-bounce-in">
+                    <h4 className="StepName">Don't Worry About your Tickets</h4>
+                    <p className="Para">
+                      While the winner gets the reward, your tickets are never
+                      lost. You can always redeem the initial amount of tokens
+                      you deposited to the app. Without ever losing anything.
+                    </p>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col sm="12" lg="6">
+                <ScrollAnimation animateIn="bounceInRight">
+                  <div className="ImagesStep">
+                    <img height="50%" width="auto" src={Step4} />
+                  </div>
+                </ScrollAnimation>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
+        <div className="Div">
+          <h2 className="StepName">Ready to Invest Some Money??</h2>
+          <Button className="Join" outline pill theme="info">
+            <a href="https://www.pooltogether.com/" className="Link2">
+              {" "}
+              Join Now
+            </a>
+          </Button>
+        </div>
+      </div>
+      /**
         <div>
           <center>
             <Card className="Steps">
@@ -260,7 +399,7 @@ export default class Home extends React.Component {
             </div>
           </center>
         </div>
-      </div>
+     */
     );
   }
 }
