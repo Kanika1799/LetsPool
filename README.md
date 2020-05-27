@@ -1,6 +1,6 @@
-This Project is made in ReactJS.
+# LetsPool
 
-## About Project
+# About the Project
  
 This website take the users to a journey explaining what PoolTogehter is and how they can be a part. It explains the concept of PoolTogether in a intuitive way which is easy for anyone to understand.
 
