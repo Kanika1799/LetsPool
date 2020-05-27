@@ -9,6 +9,7 @@ import {
   Row,
   Col,
   CardTitle,
+  CardFooter,
 } from "shards-react";
 import "./Home.css";
 import Step1 from "./Step1.png";
@@ -17,11 +18,22 @@ import Step3 from "./Step3.png";
 import Step4 from "./Step4.png";
 import PoolTogether from "./pooltogether.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGraduationCap,
+  faBrain,
+  faUser,
+  faWallet,
+  faMoneyBillWave,
+} from "@fortawesome/free-solid-svg-icons";
 import GridLoader from "react-spinners/GridLoader";
+import scrollToComponent from "react-scroll-to-component";
+
 import "./Hover.css";
 import Pool1 from "./Pool1.png";
 import Pool2 from "./Pool2.png";
+import Buy1 from "./Buy1.png";
+import Buy2 from "./Buy2.png";
+import Buy3 from "./Buy3.png";
 import BuyModal from "./components/BuyModal";
 import ScrollAnimation from "react-animate-on-scroll";
 
@@ -51,17 +63,17 @@ export default class Home extends React.Component {
     let accounts;
 
     this.setState({ isCreatingAccount: true });
-    accounts = await getWeb3()
-    console.log('this.accounts', accounts)
-    
-    const authereum = await getAutheremInstance()
-    console.log('got authereum')
+    accounts = await getWeb3();
+    console.log("this.accounts", accounts);
+
+    const authereum = await getAutheremInstance();
+    console.log("got authereum");
     this.setState({
       accounts: accounts,
       authereum: authereum,
     });
 
-    console.log('state', this.state)
+    console.log("state", this.state);
   }
 
   buyToggle() {
@@ -82,6 +94,7 @@ export default class Home extends React.Component {
         <div className="Image">
           <center>
             <img className="Logo" src={PoolTogether} />
+
             <h2 className="TagLine">
               You could win <span className="One"> $146 </span> every week just
               by saving your money
@@ -89,26 +102,53 @@ export default class Home extends React.Component {
 
             <div className="Space">
               <Button
-                className="LearnButton hvr-ripple-out"
+                onClick={() =>
+                  scrollToComponent(this.StepCards, {
+                    offset: 0,
+                    align: "top",
+                    duration: 1500,
+                  })
+                }
+                className="LearnButton"
                 outline
                 pill
                 theme="info"
               >
-                Wanna Learn More
+                Wanna Learn More <FontAwesomeIcon icon={faGraduationCap} />
               </Button>
-              <Button className="LearnButton1" outline pill theme="info">
-                Already Know Enough
+              <Button
+                className="LearnButton1"
+                outline
+                pill
+                theme="info"
+                onClick={() =>
+                  scrollToComponent(this.HowCards, {
+                    offset: 0,
+                    align: "top",
+                    duration: 1500,
+                  })
+                }
+              >
+                Already Know Enough <FontAwesomeIcon icon={faBrain} />
               </Button>
             </div>
           </center>
         </div>
-        <div className="StepCards">
+        <section
+          className="StepCards"
+          ref={(section) => {
+            this.StepCards = section;
+          }}
+        >
+          <center>
+            <h1 className="MainHeads">What We Do?</h1>{" "}
+          </center>
           <Container className="Container5">
             <Row>
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="bounceInLeft">
                   <div className="ImagesStep">
-                    <img height="50%" width="auto" src={Step1} />
+                    <img height="55%" width="auto" src={Step1} />
                   </div>
                 </ScrollAnimation>{" "}
               </Col>
@@ -146,7 +186,7 @@ export default class Home extends React.Component {
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="bounceInRight">
                   <div className="ImagesStep">
-                    <img height="50%" width="auto" src={Step2} />
+                    <img height="55%" width="auto" src={Step2} />
                   </div>
                 </ScrollAnimation>
               </Col>
@@ -158,7 +198,7 @@ export default class Home extends React.Component {
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="bounceInLeft">
                   <div className="ImagesStep">
-                    <img height="50%" width="auto" src={Step3} />
+                    <img height="55%" width="auto" src={Step3} />
                   </div>
                 </ScrollAnimation>
               </Col>
@@ -197,26 +237,112 @@ export default class Home extends React.Component {
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="bounceInRight">
                   <div className="ImagesStep">
-                    <img height="50%" width="auto" src={Step4} />
+                    <img height="55%" width="auto" src={Step4} />
                   </div>
                 </ScrollAnimation>
               </Col>
             </Row>
           </Container>
-        </div>
+        </section>
+        <section
+          className="HowCards"
+          ref={(section) => {
+            this.HowCards = section;
+          }}
+        >
+          <center>
+            <h1 className="MainHeads">How To Do?</h1>{" "}
+          </center>
+          <Container>
+            <Row>
+              <Col>
+                <Card
+                  className="LastCards hvr-ripple-out"
+                  style={{ maxWidth: "300px", maxHeight: "500px" }}
+                >
+                  <center>
+                    {" "}
+                    <CardImg
+                      className="BuyImages"
+                      width="auto"
+                      height="180rem"
+                      src={Buy2}
+                    />
+                  </center>
+                  <CardBody>
+                    <CardTitle className="BuyTitle">
+                      Create Your Etherum Account
+                    </CardTitle>
+                    <p className="Paragraph">New to Crypto's?</p>
 
-        <div className="Div">
-          <h2 className="StepName">Ready to Invest Some Money??</h2>
-          <Button className="Join" outline pill theme="info">
-            <a href="https://www.pooltogether.com/" className="Link2">
-              {" "}
-              Join Now
-            </a>
-          </Button>
-        </div>
-      </div>
-      /**
-        <div>
+                    <Button className="Join" outline pill theme="info">
+                      Create Account <FontAwesomeIcon icon={faUser} />
+                    </Button>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col>
+                <Card
+                  className="LastCards hvr-ripple-out"
+                  style={{ maxWidth: "300px", maxHeight: "500px" }}
+                >
+                  <center>
+                    {" "}
+                    <CardImg
+                      className="BuyImages"
+                      width="auto"
+                      height="180rem"
+                      src={Buy1}
+                    />
+                  </center>{" "}
+                  <CardBody>
+                    <CardTitle className="BuyTitle">
+                      Buy Some Pool Token
+                    </CardTitle>
+                    <p className="Paragraph">
+                      You Need to Login/Create a Ethereum Account First
+                    </p>
+
+                    <Button className="Join1" outline pill theme="info">
+                      Buy Eth <FontAwesomeIcon icon={faWallet} />
+                    </Button>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col>
+                <Card
+                  className="LastCards hvr-ripple-out"
+                  style={{ maxWidth: "300px", maxHeight: "500px" }}
+                >
+                  <center>
+                    {" "}
+                    <CardImg
+                      className="BuyImages1"
+                      width="auto"
+                      height="100rem"
+                      src={Buy3}
+                    />
+                  </center>{" "}
+                  <CardBody>
+                    <CardTitle className="BuyTitle1">
+                      Go To Pool Together
+                    </CardTitle>
+                    <p className="Paragraph">Ready To Invest Some Money?</p>
+
+                    <Button className="Join1" outline pill theme="info">
+                      <a href="https://www.pooltogether.com/" className="Link2">
+                        {" "}
+                        Join Now <FontAwesomeIcon icon={faMoneyBillWave} />
+                      </a>
+                    </Button>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+        <footer className="Footer"></footer>
+        {/**  <div>
           <center>
             <Card className="Steps">
               <CardBody>
@@ -402,7 +528,8 @@ export default class Home extends React.Component {
             </div>
           </center>
         </div>
-     */
+                    */}
+      </div>
     );
   }
 }
