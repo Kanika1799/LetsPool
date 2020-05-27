@@ -24,9 +24,9 @@ Once the users have sufficient DAI they can buy PoolTogehter tickets.
 Since Authereum provides Meta Transactions the users need not to pay any gas and the whole thing feels super user friendly for anyone. 
 
 ## Technologies 
- ReactJS
- Authereum
- EthersJs
+- ReactJS
+- Authereum
+- EthersJs
 
 ## Setup 
 
