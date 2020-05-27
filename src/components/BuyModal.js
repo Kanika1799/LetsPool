@@ -25,14 +25,13 @@ class BuyModal extends React.Component {
     console.log("authereum", authereum);
     this.props.toggle();
     console.log("this.state.amount", this.state.daiAmount);
+    this.props.getBuyAmount(this.state.daiAmount)
     await authereum
       .addFunds({
         countryCode: "US",
         tokenSymbol: "DAI",
         sourceAmount: this.state.daiAmount,
       })
-
-    await depositToPoolTogether(this.state.daiAmount)
   }
 
   render() {

@@ -231,7 +231,6 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Join1 {
-  margin-top: 10%;
   font-size: 120%;
   color: white;
   font-size: larger;
@@ -245,6 +244,9 @@
   background-color: #482299;
   border-color: white;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.Join9:disabled {
+  margin-top: 0 !important;
 }
 .Join1:disabled {
   margin-top: 10%;
