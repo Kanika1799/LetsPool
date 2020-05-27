@@ -11,6 +11,8 @@
     "@testing-library/user-event": "^7.2.1",
     "@truffle/contract": "^4.2.5",
     "authereum": "0.0.4-beta.156",
+    "ethers": "^4.0.47",
+    "pooltogetherjs": "pooltogether/pooltogetherjs",
     "react": "^16.13.1",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.13.1",
