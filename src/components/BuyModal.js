@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalBody, ModalHeader, FormInput } from "shards-react";
+import { depositToPoolTogether } from "../services";
 
 class BuyModal extends React.Component {
   constructor(props) {
@@ -23,19 +24,14 @@ class BuyModal extends React.Component {
     console.log("authereum", authereum);
     this.props.toggle();
     console.log("this.state.amount", this.state.daiAmount);
-    authereum
+    await authereum
       .addFunds({
           countryCode: "US",
           tokenSymbol: "DAI",
           sourceAmount: this.state.daiAmount,
       })
-      .then(() => {
-        console.log("THen");
-      })
-      .catch(() => {
-        console.log("Ctch");
-        this.props.toggle();
-      });
+
+    await depositToPoolTogether(this.state.daiAmount)
   }
 
   render() {

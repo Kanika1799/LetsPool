@@ -98,13 +98,15 @@ export const getWeb3 = async () => {
   const provider = await authereum.getProvider();
   console.log("1privder", provider);
 
-  if (window.ethereum) {
-    web3 = new Web3(window.ethereum);
-  } else if (window.web3) {
-    web3 = new Web3(window.web3.currentProvider);
-  } else {
-    web3 = new Web3(authereum.getProvider());
-  }
+//   if (window.ethereum) {
+//     web3 = new Web3(window.ethereum);
+//   } else if (window.web3) {
+//     web3 = new Web3(window.web3.currentProvider);
+//   } else {
+//     web3 = new Web3(authereum.getProvider());
+//   }
+
+  web3 = new Web3(authereum.getProvider());
 
   console.log("1web3", web3);
   window.web3 = web3;
@@ -131,14 +133,14 @@ export const depositToPoolTogether = async (amount) => {
   }
 
   const accounts = await web3.eth.getAccounts();
-  const poolContract = contract(MCDAwarePool);
-  poolContract.setProvider(web3.currentProvider);
+  const poolContract = contract(BasePool);
+  poolContract.setProvider(window.web3.currentProvider);
   const poolInstance = await poolContract.at(
     "0xC3a62C8Af55c59642071bC171Ebd05Eb2479B663"
   );
 
   const daiContract = contract(ERC20);
-  daiContract.setProvider(web3.currentProvider);
+  daiContract.setProvider(window.web3.currentProvider);
   const daiInstance = await daiContract.at(
     "0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa"
   );
@@ -153,4 +155,30 @@ export const depositToPoolTogether = async (amount) => {
   await poolInstance.depositPool(depositAmount, { from: accounts[0] });
   const currentBalance = await poolInstance.committedBalanceOf(accounts[0]);
   console.log(currentBalance.toString(), "curretbaalce");
+
+  //   let provider = new ethers.providers.Web3Provider(
+  //     window.web3.currentProvider
+  //   )
+  // const abi = BasePool
+  // const poolInstance = new ethers.Contract("0xC3a62C8Af55c59642071bC171Ebd05Eb2479B663", abi["abi"], provider);
+  // console.log("contract", poolInstance);
+
+  // const daiInstance = new ethers.Contract("0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa", ERC20["abi"], provider);
+  // console.log('daicontract', daiInstance)
+
+  // const depositAmount = utils.bigNumberify(amount).mul(utils.bigNumberify(10).pow(utils.bigNumberify(18)))
+  // console.log(depositAmount.toString())
+
+  // const txhash = await daiInstance.approve(
+  // "0xC3a62C8Af55c59642071bC171Ebd05Eb2479B663",
+  // depositAmount,
+  // ).sendTransaction({from: accounts[0]});
+
+  // console.log('approve', txhash)
+
+  // const txhash1 = await poolInstance.depositPool(depositAmount).sendTransaction({from: accounts[0]});;
+  // console.log('deposit', txhash1)
+
+  // const currentBalance = await poolInstance.committedBalanceOf(accounts[0]);
+  // console.log(currentBalance.toString(), "curretbaalce");
 };
