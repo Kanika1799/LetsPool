@@ -1,9 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project is made in ReactJS.
 
-## Available Scripts
+## About Project
+ 
+This website take the users to a journey explaining what PoolTogehter is and how they can be a part. The site explains the conecpt of PoolTogether in a intuitive way. 
 
-In the project directory, you can run:
+Next the user is guided through the process of creating a Crypto wallet. We chose Authereum for this since they have got Meta Transactions which are very user friendly for new users those are new to the crypto jargon. 
 
+The next step is to get users to buy some crypto for this we have two integration Moonpay and Wyre from where users can easily and safely buy DAI. Once the users have sufficient DAI they are taken to buy PoolTogehter tickets. Since Authereum provides Meta Trasncations the users need not to pay any gas and the whole thing feels very user friendly. 
+
+## Technologies 
+ ReactJS
+ Authereum
+
+## Setup 
+
+### `Live Site`
+https://upbeat-mirzakhani-f83078.netlify.app/
+
+### `npm install`
+Install all the modules for the project
 ### `npm start`
 
 Runs the app in the development mode.<br />
@@ -43,26 +58,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
