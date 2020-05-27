@@ -266,30 +266,31 @@
   color: black;
   font-weight: bolder;
   font-size: 180%;
+  margin-top: 10%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Smthng {
   margin-left: 25%;
   background-color: #ebe4fd;
-  padding: 12%;
+  padding: 4%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Smthng2 {
   margin-right: 25%;
   background-color: #ebe4fd;
-  padding: 12%;
+  padding: 4%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Smthng3 {
   margin-left: 25%;
   background-color: #ebe4fd;
-  padding: 12%;
+  padding: 4%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Smthng4 {
   margin-right: 25%;
   background-color: #ebe4fd;
-  padding: 12%;
+  padding: 4%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Smthng1 {
@@ -324,7 +325,7 @@
 }
 /* */
 .LastCards {
-  height: 30rem;
+  height: 40rem;
   width: 110%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
@@ -355,7 +356,7 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .BuyTitle1 {
-  margin-top: 26%;
+  margin-top: 8%;
   font-size: 150%;
 
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -372,6 +373,40 @@
   color: white;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+.BuyNumber {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #d1b6ff;
+  color: black;
+  font-size: 150%;
+  font-weight: bolder;
+  border-radius: 50%;
+  width: 15%;
+  padding: 2%;
+  border: 2px solid #3e1b91;
+}
+.BuyNumber1 {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #d1b6ff;
+  color: black;
+  font-size: 150%;
+  font-weight: bolder;
+  border-radius: 50%;
+  width: 15%;
+  padding: 2%;
+  border: 2px solid #3e1b91;
+  margin-top: 20%;
+}
+.StepNum {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.Next {
+  float: right;
+  padding-top: 6%;
+  padding-bottom: 3%;
+}
+
 /* */
 
 /* */

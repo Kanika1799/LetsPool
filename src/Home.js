@@ -11,6 +11,11 @@ import {
   CardTitle,
   CardFooter,
 } from "shards-react";
+import One from "./one.png";
+import Two from "./Two.png";
+import Three from "./three.png";
+import Four from "./four.png";
+
 import "./Home.css";
 import Step1 from "./Step1.png";
 import Step2 from "./Step2.png";
@@ -24,6 +29,8 @@ import {
   faUser,
   faWallet,
   faMoneyBillWave,
+  faForward,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import GridLoader from "react-spinners/GridLoader";
 import scrollToComponent from "react-scroll-to-component";
@@ -155,6 +162,7 @@ export default class Home extends React.Component {
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
                   <div className="Smthng hvr-bounce-in">
+                    <h2 className="StepNum">Step 1</h2>
                     <h4 className="StepName">
                       Deposit some Dollars with Others
                     </h4>
@@ -163,6 +171,23 @@ export default class Home extends React.Component {
                       Meanwhile others also do the same. All this is safely
                       deposited to Pool Together's Contract
                     </p>
+
+                    <h5
+                      onClick={() =>
+                        scrollToComponent(this.Smthng2, {
+                          offset: 0,
+                          align: "top",
+                          duration: 1500,
+                        })
+                      }
+                      className="Next"
+                    >
+                      Next{" "}
+                      <FontAwesomeIcon
+                        className="icon hvr-icon-pulse"
+                        icon={faForward}
+                      />{" "}
+                    </h5>
                   </div>
                 </ScrollAnimation>
               </Col>
@@ -173,13 +198,35 @@ export default class Home extends React.Component {
             <Row>
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-                  <div className="Smthng2 hvr-bounce-in">
+                  <div
+                    className="Smthng2 hvr-bounce-in"
+                    ref={(section) => {
+                      this.Smthng2 = section;
+                    }}
+                  >
+                    <h2 className="StepNum">Step 2</h2>
                     <h4 className="StepName">Sit Back And Relax</h4>
                     <p className="Para">
                       This is all you need to do now. From now on your entry to
                       the next and it's next prize is taken automatically by the
                       system while you can relax and focus on your work.
                     </p>
+                    <h5
+                      onClick={() =>
+                        scrollToComponent(this.Smthng3, {
+                          offset: 0,
+                          align: "top",
+                          duration: 1500,
+                        })
+                      }
+                      className="Next"
+                    >
+                      Next{" "}
+                      <FontAwesomeIcon
+                        className="icon hvr-icon-pulse"
+                        icon={faForward}
+                      />{" "}
+                    </h5>
                   </div>
                 </ScrollAnimation>
               </Col>
@@ -204,7 +251,13 @@ export default class Home extends React.Component {
               </Col>
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-                  <div className="Smthng3 hvr-bounce-in">
+                  <div
+                    ref={(section) => {
+                      this.Smthng3 = section;
+                    }}
+                    className="Smthng3 hvr-bounce-in"
+                  >
+                    <h2 className="StepNum">Step 3</h2>
                     <h4 className="StepName">
                       {" "}
                       Get the Prize Results delivered to you
@@ -214,6 +267,22 @@ export default class Home extends React.Component {
                       delivered right to your inbox or you can always visit the
                       Pool Together site to check the prize history.
                     </p>
+                    <h5
+                      onClick={() =>
+                        scrollToComponent(this.Smthng4, {
+                          offset: 0,
+                          align: "top",
+                          duration: 1500,
+                        })
+                      }
+                      className="Next"
+                    >
+                      Next{" "}
+                      <FontAwesomeIcon
+                        className="icon hvr-icon-pulse"
+                        icon={faForward}
+                      />{" "}
+                    </h5>
                   </div>
                 </ScrollAnimation>
               </Col>
@@ -224,13 +293,35 @@ export default class Home extends React.Component {
             <Row>
               <Col sm="12" lg="6">
                 <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-                  <div className="Smthng4 hvr-bounce-in">
+                  <div
+                    ref={(section) => {
+                      this.Smthng4 = section;
+                    }}
+                    className="Smthng4 hvr-bounce-in"
+                  >
+                    <h2 className="StepNum">Step 4</h2>
                     <h4 className="StepName">Don't Worry About your Tickets</h4>
                     <p className="Para">
                       While the winner gets the reward, your tickets are never
                       lost. You can always redeem the initial amount of tokens
                       you deposited to the app. Without ever losing anything.
                     </p>
+                    <h5
+                      onClick={() =>
+                        scrollToComponent(this.HowCards, {
+                          offset: 0,
+                          align: "top",
+                          duration: 1500,
+                        })
+                      }
+                      className="Next"
+                    >
+                      Lets Begin
+                      <FontAwesomeIcon
+                        className="icon hvr-icon-pulse"
+                        icon={faArrowRight}
+                      />{" "}
+                    </h5>
                   </div>
                 </ScrollAnimation>
               </Col>
@@ -270,6 +361,11 @@ export default class Home extends React.Component {
                     />
                   </center>
                   <CardBody>
+                    <h6>
+                      <span>
+                        <img className="BuyNumber" src={One} />{" "}
+                      </span>{" "}
+                    </h6>
                     <CardTitle className="BuyTitle">
                       Create Your Etherum Account
                     </CardTitle>
@@ -296,6 +392,11 @@ export default class Home extends React.Component {
                     />
                   </center>{" "}
                   <CardBody>
+                    <h6>
+                      <span>
+                        <img className="BuyNumber" src={Two} />{" "}
+                      </span>{" "}
+                    </h6>
                     <CardTitle className="BuyTitle">
                       Buy Some Pool Token
                     </CardTitle>
@@ -324,6 +425,11 @@ export default class Home extends React.Component {
                     />
                   </center>{" "}
                   <CardBody>
+                    <h6>
+                      <span>
+                        <img className="BuyNumber1" src={Three} />{" "}
+                      </span>{" "}
+                    </h6>
                     <CardTitle className="BuyTitle1">
                       Go To Pool Together
                     </CardTitle>
