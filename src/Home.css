@@ -322,6 +322,12 @@
 
   border: 1px solid #5029ab;
 }
+.LastCards:hover {
+  -ms-transform: scale(1.04); /* IE 9 */
+  -webkit-transform: scale(1.04); /* Safari 3-8 */
+  transform: scale(1.04);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
 .Paragraph {
   height: 3rem;
   font-size: 125%;
