@@ -48,6 +48,7 @@ import {
   getWeb3,
   getAutheremInstance,
   depositToPoolTogether,
+  getEstimatedPrize
 } from "./services";
 
 export default class Home extends React.Component {
@@ -59,9 +60,15 @@ export default class Home extends React.Component {
       authereum: null,
       isCreatingAccount: false,
       buyingPoolToken: false,
+      estimatedPrize: 0
     };
     this.buyToggle = this.buyToggle.bind(this);
     this.createEthAddress = this.createEthAddress.bind(this);
+  }
+
+  async componentDidMount() {
+    const estimatedPrize = await getEstimatedPrize('0x29fe7D60DdF151E5b52e5FAB4f1325da6b2bD958')
+    this.setState({ estimatedPrize })
   }
 
   async createEthAddress() {
@@ -103,7 +110,7 @@ export default class Home extends React.Component {
             <img className="Logo" src={PoolTogether} />
 
             <h2 className="TagLine">
-              You could win <span className="One"> $146 </span> every week just
+              You could win <span className="One"> ${this.state.estimatedPrize} </span> every week just
               by saving your money
             </h2>
 
@@ -369,11 +376,38 @@ export default class Home extends React.Component {
                     <CardTitle className="BuyTitle">
                       Create Your Etherum Account
                     </CardTitle>
-                    <p className="Paragraph">New to Crypto's?</p>
-
-                    <Button className="Join" outline pill theme="info">
-                      Create Account <FontAwesomeIcon icon={faUser} />
-                    </Button>
+                    <p className="Paragraph">New to Crypto?</p>
+                    {this.state.accounts ? (
+                      <div>
+                        <center>
+                          <h4> Your Ethereum Address </h4>
+                        </center>
+                        <Badge outline pill theme="success">
+                          {this.state.accounts}
+                        </Badge>
+                      </div>
+                    ) : this.state.isCreatingAccount ? (
+                      <div>
+                        <center>
+                          <h4> Creating Your Account </h4>
+                        </center>
+                        <GridLoader
+                          size={10}
+                          color={"#5f26c0"}
+                          loading={this.state.isCreatingAccount}
+                        />
+                      </div>
+                    ):(
+                        <Button
+                          className="Join"
+                          outline
+                          pill
+                          theme="info"
+                          onClick={this.createEthAddress}
+                        >
+                           Create Account <FontAwesomeIcon icon={faUser} />
+                        </Button>
+                    )}
                   </CardBody>
                 </Card>
               </Col>
@@ -403,10 +437,29 @@ export default class Home extends React.Component {
                     <p className="Paragraph">
                       You Need to Login/Create a Ethereum Account First
                     </p>
-
-                    <Button className="Join1" outline pill theme="info">
+                    {this.state.accounts ? (
+                      this.state.buyingPoolToken ? (
+                        <GridLoader
+                          size={10}
+                          color={"#5f26c0"}
+                          loading={this.state.buyingPoolToken}
+                        />
+                      ) : (
+                          <Button
+                            className="Join2"
+                            outline
+                            pill
+                            theme="info"
+                            onClick={this.buyToggle}
+                          >
+                            Buy Eth <FontAwesomeIcon icon={faWallet} />
+                          </Button>
+                      )
+                    ): (
+                        <Button disabled className="Join1" outline pill theme="info">
                       Buy Eth <FontAwesomeIcon icon={faWallet} />
                     </Button>
+                    )}
                   </CardBody>
                 </Card>
               </Col>
@@ -447,6 +500,12 @@ export default class Home extends React.Component {
             </Row>
           </Container>
         </section>
+        <BuyModal
+                      show={this.state.open}
+                      toggle={this.buyToggle}
+                      accounts={this.state.accounts}
+                      authereumInstance={this.state.authereum}
+                    />
         <footer className="Footer"></footer>
         {/**  <div>
           <center>
