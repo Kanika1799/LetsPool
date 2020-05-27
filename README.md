@@ -2,15 +2,31 @@ This Project is made in ReactJS.
 
 ## About Project
  
-This website take the users to a journey explaining what PoolTogehter is and how they can be a part. The site explains the conecpt of PoolTogether in a intuitive way. 
+This website take the users to a journey explaining what PoolTogehter is and how they can be a part. It explains the concept of PoolTogether in a intuitive way which is easy for anyone to understand.
 
-Next the user is guided through the process of creating a Crypto wallet. We chose Authereum for this since they have got Meta Transactions which are very user friendly for new users those are new to the crypto jargon. 
+Next the user is guided through the process of creating a Crypto wallet, buying DAI from FIAT and finally Depositing on PoolTogether.
 
-The next step is to get users to buy some crypto for this we have two integration Moonpay and Wyre from where users can easily and safely buy DAI. Once the users have sufficient DAI they are taken to buy PoolTogehter tickets. Since Authereum provides Meta Trasncations the users need not to pay any gas and the whole thing feels very user friendly. 
+## Step 1
+We chose Authereum for this since it is very easy for onboarding. Authereum enables Meta Transaction and DAI fees by default which makes onboarding a breeze. 
+
+The user doesn't have to worry about the additionally buying ETH and managing gas fee. 
+
+## Step 2
+
+The next step is to get users to buy some crypto (DAI in this case) 
+
+We have two integrations for this - Moonpay and Wyre from where users can easily and safely buy DAI.
+
+## Step 3
+
+Once the users have sufficient DAI they can buy PoolTogehter tickets.
+
+Since Authereum provides Meta Transactions the users need not to pay any gas and the whole thing feels super user friendly for anyone. 
 
 ## Technologies 
  ReactJS
  Authereum
+ EthersJs
 
 ## Setup 
 
