@@ -124,6 +124,10 @@
 .LearnButton:hover {
   background-color: #482299;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  -ms-transform: scale(1.02); /* IE 9 */
+  -webkit-transform: scale(1.02); /* Safari 3-8 */
+  transform: scale(1.02);
+  border-color: #3ef3d4;
 }
 .LearnButton1 {
   margin-left: 3%;
@@ -137,6 +141,10 @@
 .LearnButton1:hover {
   background-color: #482299;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  -ms-transform: scale(1.02); /* IE 9 */
+  -webkit-transform: scale(1.02); /* Safari 3-8 */
+  transform: scale(1.02);
+  border-color: #3ef3d4;
 }
 .LearnButton:hover .Space {
   padding-top: 3%;
