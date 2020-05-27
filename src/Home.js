@@ -31,6 +31,7 @@ import {
   faMoneyBillWave,
   faForward,
   faArrowRight,
+  faCopy,
 } from "@fortawesome/free-solid-svg-icons";
 import GridLoader from "react-spinners/GridLoader";
 import scrollToComponent from "react-scroll-to-component";
@@ -41,6 +42,7 @@ import Pool2 from "./Pool2.png";
 import Buy1 from "./Buy1.png";
 import Buy2 from "./Buy2.png";
 import Buy3 from "./Buy3.png";
+import PoolSymbol from "./PoolSymbol.svg";
 import BuyModal from "./components/BuyModal";
 import ScrollAnimation from "react-animate-on-scroll";
 
@@ -48,8 +50,10 @@ import {
   getWeb3,
   getAutheremInstance,
   depositToPoolTogether,
-  getEstimatedPrize
+  getEstimatedPrize,
 } from "./services";
+import { getShortAddress } from "./utils";
+import copy from "clipboard-copy";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -60,15 +64,17 @@ export default class Home extends React.Component {
       authereum: null,
       isCreatingAccount: false,
       buyingPoolToken: false,
-      estimatedPrize: 0
+      estimatedPrize: 0,
     };
     this.buyToggle = this.buyToggle.bind(this);
     this.createEthAddress = this.createEthAddress.bind(this);
   }
 
   async componentDidMount() {
-    const estimatedPrize = await getEstimatedPrize('0x29fe7D60DdF151E5b52e5FAB4f1325da6b2bD958')
-    this.setState({ estimatedPrize })
+    const estimatedPrize = await getEstimatedPrize(
+      "0x29fe7D60DdF151E5b52e5FAB4f1325da6b2bD958"
+    );
+    this.setState({ estimatedPrize });
   }
 
   async createEthAddress() {
@@ -110,8 +116,9 @@ export default class Home extends React.Component {
             <img className="Logo" src={PoolTogether} />
 
             <h2 className="TagLine">
-              You could win <span className="One"> ${this.state.estimatedPrize} </span> every week just
-              by saving your money
+              You could win{" "}
+              <span className="One"> ${this.state.estimatedPrize} </span> every
+              week just by saving your money
             </h2>
 
             <div className="Space">
@@ -144,6 +151,12 @@ export default class Home extends React.Component {
                 }
               >
                 Already Know Enough <FontAwesomeIcon icon={faBrain} />
+              </Button>
+              <Button className="LearnButton2" outline pill theme="info">
+                <a href="https://www.pooltogether.com/" className="Link2">
+                  Launch PoolTogether
+                </a>{" "}
+                <img className="Symbol" width="8%" src={PoolSymbol} />
               </Button>
             </div>
           </center>
@@ -373,40 +386,57 @@ export default class Home extends React.Component {
                         <img className="BuyNumber" src={One} />{" "}
                       </span>{" "}
                     </h6>
-                    <CardTitle className="BuyTitle">
-                      Create Your Etherum Account
-                    </CardTitle>
-                    <p className="Paragraph">New to Crypto?</p>
+                    {!this.state.accounts ? (
+                      <div>
+                        {" "}
+                        <CardTitle className="BuyTitle">
+                          Create Your Etherum Account
+                        </CardTitle>
+                        <p className="Paragraph">New to Crypto?</p>
+                      </div>
+                    ) : null}
                     {this.state.accounts ? (
                       <div>
                         <center>
-                          <h4> Your Ethereum Address </h4>
+                          <CardTitle className="BuyTitle">
+                            {" "}
+                            Your Ethereum Address{" "}
+                          </CardTitle>
                         </center>
-                        <Badge outline pill theme="success">
-                          {this.state.accounts}
-                        </Badge>
+                        <Button
+                          onClick={() => copy(this.state.account[0])}
+                          className="Join4"
+                          outline
+                          pill
+                          theme="info"
+                        >
+                          {getShortAddress(this.state.accounts[0])}{" "}
+                          <FontAwesomeIcon icon={faCopy} />
+                        </Button>
                       </div>
                     ) : this.state.isCreatingAccount ? (
                       <div>
                         <center>
                           <h4> Creating Your Account </h4>
                         </center>
-                        <GridLoader
-                          size={10}
-                          color={"#5f26c0"}
-                          loading={this.state.isCreatingAccount}
-                        />
+                        <center>
+                          <GridLoader
+                            size={10}
+                            color={"#5f26c0"}
+                            loading={this.state.isCreatingAccount}
+                          />
+                        </center>
                       </div>
-                    ):(
-                        <Button
-                          className="Join"
-                          outline
-                          pill
-                          theme="info"
-                          onClick={this.createEthAddress}
-                        >
-                           Create Account <FontAwesomeIcon icon={faUser} />
-                        </Button>
+                    ) : (
+                      <Button
+                        className="Join"
+                        outline
+                        pill
+                        theme="info"
+                        onClick={this.createEthAddress}
+                      >
+                        Create Account <FontAwesomeIcon icon={faUser} />
+                      </Button>
                     )}
                   </CardBody>
                 </Card>
@@ -439,26 +469,34 @@ export default class Home extends React.Component {
                     </p>
                     {this.state.accounts ? (
                       this.state.buyingPoolToken ? (
-                        <GridLoader
-                          size={10}
-                          color={"#5f26c0"}
-                          loading={this.state.buyingPoolToken}
-                        />
+                        <center>
+                          <GridLoader
+                            size={10}
+                            color={"#5f26c0"}
+                            loading={this.state.buyingPoolToken}
+                          />
+                        </center>
                       ) : (
-                          <Button
-                            className="Join2"
-                            outline
-                            pill
-                            theme="info"
-                            onClick={this.buyToggle}
-                          >
-                            Buy Eth <FontAwesomeIcon icon={faWallet} />
-                          </Button>
+                        <Button
+                          className="Join2"
+                          outline
+                          pill
+                          theme="info"
+                          onClick={this.buyToggle}
+                        >
+                          Buy Eth <FontAwesomeIcon icon={faWallet} />
+                        </Button>
                       )
-                    ): (
-                        <Button disabled className="Join1" outline pill theme="info">
-                      Buy Eth <FontAwesomeIcon icon={faWallet} />
-                    </Button>
+                    ) : (
+                      <Button
+                        disabled
+                        className="Join1"
+                        outline
+                        pill
+                        theme="info"
+                      >
+                        Buy Eth <FontAwesomeIcon icon={faWallet} />
+                      </Button>
                     )}
                   </CardBody>
                 </Card>
@@ -501,12 +539,14 @@ export default class Home extends React.Component {
           </Container>
         </section>
         <BuyModal
-                      show={this.state.open}
-                      toggle={this.buyToggle}
-                      accounts={this.state.accounts}
-                      authereumInstance={this.state.authereum}
-                    />
-        <footer className="Footer"></footer>
+          show={this.state.open}
+          toggle={this.buyToggle}
+          accounts={this.state.accounts}
+          authereumInstance={this.state.authereum}
+        />
+        <footer className="Footer">
+          <img className="FooterImage" src={PoolTogether} />
+        </footer>
         {/**  <div>
           <center>
             <Card className="Steps">

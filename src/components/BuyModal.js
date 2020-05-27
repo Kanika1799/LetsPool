@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalBody, ModalHeader, FormInput } from "shards-react";
-
+import "../Home.css";
 class BuyModal extends React.Component {
   constructor(props) {
     super(props);
@@ -25,9 +25,9 @@ class BuyModal extends React.Component {
     console.log("this.state.amount", this.state.daiAmount);
     authereum
       .addFunds({
-          countryCode: "US",
-          tokenSymbol: "DAI",
-          sourceAmount: this.state.daiAmount,
+        countryCode: "US",
+        tokenSymbol: "DAI",
+        sourceAmount: this.state.daiAmount,
       })
       .then(() => {
         console.log("THen");
@@ -41,7 +41,11 @@ class BuyModal extends React.Component {
   render() {
     return (
       <div>
-        <Modal open={this.props.show} toggle={this.props.toggle}>
+        <Modal
+          className="Modal"
+          open={this.props.show}
+          toggle={this.props.toggle}
+        >
           <ModalHeader>Get PoolTogether Tokens</ModalHeader>
           <br />
           <p>One Ticket is Worth 1 Dollar</p>
@@ -53,7 +57,7 @@ class BuyModal extends React.Component {
               onChange={this.handlebuyInput}
             />
             <Button
-              className="ModalButton"
+              className="ModalButton Join2"
               outline
               pill
               theme="info"
